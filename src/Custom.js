@@ -1,7 +1,4 @@
-/* global unlayer: false */
-
-
-  unlayer.registerTool({
+unlayer.registerTool({
     name: 'letter_spacing',
     label: 'Letter Spacing',
     icon: 'fa-smile',
