@@ -2,8 +2,8 @@
 
 
   unlayer.registerTool({
-    name: 'my_tool',
-    label: 'My Tool',
+    name: 'letter_spacing',
+    label: 'Letter Spacing',
     icon: 'fa-smile',
     supportedDisplayModes: ['web', 'email'],
     options: {
