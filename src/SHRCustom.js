@@ -25,8 +25,7 @@ unlayer.registerTool({
     renderer: {
       Viewer: unlayer.createViewer({
         render(values) {
-          return `<div style="letter-spacing: ${values.letterSpacing};">I am a custom tool.</div>
-                  <button>hello</button>`;
+          return `<div style="letter-spacing: ${values.letterSpacing};">I am a custom tool.</div>`;
         },
       }),
       exporters: {
