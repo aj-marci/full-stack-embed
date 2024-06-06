@@ -45,23 +45,48 @@ unlayer.registerTool({
 
 
   unlayer.registerPropertyEditor({
-    name: 'my_letter_spacing_picker',
+    name: 'my_font_and_spacing_picker',
     layout: 'bottom',
     Widget: unlayer.createWidget({
       render(value, updateValue, data) {
+        const letterSpacing = value.letterSpacing ? value.letterSpacing.replace('px', '') : '0';
+        const fontWeight = value.fontWeight || '400';
         return `
-          <input class="value" type="number" value="${value.replace('px', '')}" step="0.1" /> px
-        `;
+          <div>
+            <label>Letter Spacing: 
+              <input class="letter-spacing" type="number" value="${letterSpacing}" step="0.1" /> px
+            </label>
+          </div>
+          <div>
+            <label>Font Weight: 
+              <input class="font-weight" type="number" value="${fontWeight}" min="100" max="900" step="100" />
+            </label>
+          </div>`;
       },
       mount(node, value, updateValue, data) {
-        var input = node.querySelector('.value');
-
-        input.onchange = function (e) {
-          updateValue(e.target.value + 'px');
+        const letterSpacingInput = node.querySelector('.letter-spacing');
+        const fontWeightInput = node.querySelector('.font-weight');
+  
+        letterSpacingInput.onchange = function (e) {
+          const newValue = {
+            ...value,
+            letterSpacing: e.target.value + 'px'
+          };
+          updateValue(newValue);
+        };
+  
+        fontWeightInput.onchange = function (e) {
+          const newValue = {
+            ...value,
+            fontWeight: e.target.value
+          };
+          updateValue(newValue);
         };
       },
     }),
   });
+  
+
 
   
   
