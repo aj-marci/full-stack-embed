@@ -16,6 +16,11 @@ unlayer.registerTool({
           defaultValue: '0px',
           widget: 'my_letter_spacing_picker', // custom property editor for letter spacing
         },
+        customText: {
+          label: 'Custom Text',
+          defaultValue: 'I am a custom tool.',
+          widget: 'text_input', // built-in text input property editor
+        },
       },
     },
   },
@@ -23,15 +28,15 @@ unlayer.registerTool({
   renderer: {
     Viewer: unlayer.createViewer({
       render(values) {
-        return `<div style="letter-spacing: ${values.letterSpacing};">I am a custom tool.</div>`;
+        return `<div style="letter-spacing: ${values.letterSpacing};">${values.customText}</div>`;
       },
     }),
     exporters: {
       web: function (values) {
-        return `<div style="letter-spacing: ${values.letterSpacing};">I am a custom tool.</div>`;
+        return `<div style="letter-spacing: ${values.letterSpacing};">${values.customText}</div>`;
       },
       email: function (values) {
-        return `<div style="letter-spacing: ${values.letterSpacing};">I am a custom tool.</div>`;
+        return `<div style="letter-spacing: ${values.letterSpacing};">${values.customText}</div>`;
       },
     },
     head: {
@@ -47,44 +52,27 @@ unlayer.registerPropertyEditor({
   Widget: unlayer.createWidget({
     render(value, updateValue, data) {
       return `
-        <div>
-          <input class="value" type="number" value="${value.replace('px', '')}" step="0.1" /> px
-          <button class="dynamic-data-button">Go to Dynamic Data Editor</button>
-        </div>
-      `;
+        <input class="value" type="number" value="${value.replace('px', '')}" step="0.1" /> px`;
     },
     mount(node, value, updateValue, data) {
       var input = node.querySelector('.value');
-      var button = node.querySelector('.dynamic-data-button');
 
       input.onchange = function (e) {
         updateValue(e.target.value + 'px');
-      };
-
-      button.onclick = function () {
-        unlayer.setPropertyEditor('dynamic_data_editor', {
-          name: 'Dynamic Data',
-          value: 'default value', // you can pass any dynamic data here
-        });
       };
     },
   }),
 });
 
 unlayer.registerPropertyEditor({
-  name: 'dynamic_data_editor',
+  name: 'text_input',
   layout: 'bottom',
   Widget: unlayer.createWidget({
     render(value, updateValue, data) {
-      return `
-        <div>
-          <label>Dynamic Data:</label>
-          <input class="dynamic-data-value" type="text" value="${value}" />
-        </div>
-      `;
+      return `<input class="value" type="text" value="${value}" />`;
     },
     mount(node, value, updateValue, data) {
-      var input = node.querySelector('.dynamic-data-value');
+      var input = node.querySelector('.value');
 
       input.onchange = function (e) {
         updateValue(e.target.value);
