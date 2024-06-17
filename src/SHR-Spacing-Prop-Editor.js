@@ -19,13 +19,8 @@ unlayer.registerTool({
         customText: {
           label: 'Text Styling',
           defaultValue: 'I am a custom tool.',
-          widget: 'rich_text', // built-in text input property editor
+          widget: 'rich_text', // built-in rich text input property editor
         },
-        fontFamily: {
-          label: 'Font Family',
-          defaultValue: 'sans-serif',
-          widget: 'font_family',
-        }
       },
     },
   },
@@ -69,19 +64,4 @@ unlayer.registerPropertyEditor({
   }),
 });
 
-unlayer.registerPropertyEditor({
-  name: 'text_input',
-  layout: 'bottom',
-  Widget: unlayer.createWidget({
-    render(value, updateValue, data) {
-      return `<input class="value" type="text" value="${value}" />`;
-    },
-    mount(node, value, updateValue, data) {
-      var input = node.querySelector('.value');
 
-      input.onchange = function (e) {
-        updateValue(e.target.value);
-      };
-    },
-  }),
-});
