@@ -14,7 +14,7 @@ unlayer.registerTool({
         letterSpacing: {
           label: 'Letter Spacing',
           defaultValue: '0px',
-          widget: 'my_letter_spacing_picker', // custom property editor for letter spacing
+          widget: 'counter', // custom property editor for letter spacing
         },
         customText: {
           label: 'Text Styling',
@@ -47,7 +47,7 @@ unlayer.registerTool({
 });
 
 unlayer.registerPropertyEditor({
-  name: 'my_letter_spacing_picker',
+  name: 'counter',
   layout: 'bottom',
   Widget: unlayer.createWidget({
     render(value, updateValue, data) {
