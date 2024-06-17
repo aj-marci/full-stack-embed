@@ -1,7 +1,7 @@
 unlayer.registerTool({
   name: 'letter_spacing',
   label: 'Letter Spacing',
-  icon: 'fa-smile',
+  icon: 'fa-text-width',
   supportedDisplayModes: ['web', 'email'],
   options: {
     default: {
@@ -25,6 +25,7 @@ unlayer.registerTool({
           label: 'Font Family',
           defaultValue: 'Helvetica',
           widget: 'font_family',
+          value: 'arial,helvetica,sans-serif'
         }
       },
     },
