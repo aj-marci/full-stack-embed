@@ -14,7 +14,7 @@ unlayer.registerTool({
         letterSpacing: {
           label: 'Letter Spacing',
           defaultValue: '0px',
-          widget: 'my_letter_spacing_picker', // custom property editor for letter spacing
+          widget: 'text', // custom property editor for letter spacing
         },
         customText: {
           label: 'Custom Text',
@@ -49,7 +49,7 @@ unlayer.registerTool({
 unlayer.registerPropertyEditor({
   name: 'my_letter_spacing_picker',
   layout: 'bottom',
-  Widget: unlayer.rich_text({
+  Widget: unlayer.createWidget({
     render(value, updateValue, data) {
       return `
         <input class="value" type="number" value="${value.replace('px', '')}" step="0.1" /> px`;
