@@ -14,13 +14,18 @@ unlayer.registerTool({
         letterSpacing: {
           label: 'Letter Spacing',
           defaultValue: '0px',
-          widget: 'counter', // custom property editor for letter spacing
+          widget: 'custom_letter_spacing', // custom property editor for letter spacing
         },
         customText: {
           label: 'Text Styling',
           defaultValue: 'I am a custom tool.',
           widget: 'rich_text', // built-in text input property editor
         },
+        fontFamily: {
+          label: 'Font Family',
+          defaultValue: 'sans-serif',
+          widget: 'font_family',
+        }
       },
     },
   },
@@ -47,7 +52,7 @@ unlayer.registerTool({
 });
 
 unlayer.registerPropertyEditor({
-  name: 'counter',
+  name: 'custom_letter_spacing',
   layout: 'bottom',
   Widget: unlayer.createWidget({
     render(value, updateValue, data) {
