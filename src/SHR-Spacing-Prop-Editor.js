@@ -19,7 +19,7 @@ unlayer.registerTool({
         customText: {
           label: 'Custom Text',
           defaultValue: 'I am a custom tool.',
-          widget: 'text', // built-in text input property editor
+          widget: 'rich_text', // built-in text input property editor
         },
       },
     },
