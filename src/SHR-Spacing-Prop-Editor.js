@@ -21,6 +21,11 @@ unlayer.registerTool({
           defaultValue: 'I am a custom tool.',
           widget: 'rich_text', // built-in rich text input property editor
         },
+        fontFamily: {
+          label: 'Font Family',
+          defaultValue: 'Helvetica',
+          widget: 'font_family',
+        }
       },
     },
   },
