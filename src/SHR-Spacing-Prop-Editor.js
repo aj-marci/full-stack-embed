@@ -14,12 +14,12 @@ unlayer.registerTool({
         letterSpacing: {
           label: 'Letter Spacing',
           defaultValue: '0px',
-          widget: 'text', // custom property editor for letter spacing
+          widget: 'counter', // custom property editor for letter spacing
         },
         customText: {
           label: 'Custom Text',
           defaultValue: 'I am a custom tool.',
-          widget: 'text_input', // built-in text input property editor
+          widget: 'text', // built-in text input property editor
         },
       },
     },
