@@ -49,7 +49,7 @@ unlayer.registerTool({
 unlayer.registerPropertyEditor({
   name: 'my_letter_spacing_picker',
   layout: 'bottom',
-  Widget: unlayer.createWidget({
+  Widget: unlayer.rich_text({
     render(value, updateValue, data) {
       return `
         <input class="value" type="number" value="${value.replace('px', '')}" step="0.1" /> px`;
