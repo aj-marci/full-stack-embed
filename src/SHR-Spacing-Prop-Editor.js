@@ -8,16 +8,16 @@ unlayer.registerTool({
       title: null,
     },
     text: {
-      title: 'Text',
+      title: 'Custom Letter Spacing Tool',
       position: 1,
       options: {
         letterSpacing: {
           label: 'Letter Spacing',
           defaultValue: '0px',
-          widget: 'counter', // custom property editor for letter spacing
+          widget: 'my_letter_spacing_picker', // custom property editor for letter spacing
         },
         customText: {
-          label: 'Custom Text',
+          label: 'Text Styling',
           defaultValue: 'I am a custom tool.',
           widget: 'rich_text', // built-in text input property editor
         },
