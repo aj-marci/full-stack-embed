@@ -1,8 +1,8 @@
 
 
 unlayer.registerTool({
-    name: 'letter_spacing',
-    label: 'Letter Spacing',
+    name: 'custom_button',
+    label: 'Custom Button',
     icon: 'fa-text-width',
     supportedDisplayModes: ['web', 'email'],
     options: {
@@ -10,15 +10,8 @@ unlayer.registerTool({
         title: null,
       },
       button: {
-        title: 'Custom Letter Spacing Tool',
+        title: 'Custom Button',
         position: 1,
-        options: {
-          customText: {
-            label: 'Text Styling',
-            defaultValue: 'I am a custom tool.',
-            widget: 'rich_text', // built-in rich text input property editor
-          },
-        },
       },
     },
     values: {},
