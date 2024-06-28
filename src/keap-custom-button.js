@@ -1,32 +1,37 @@
-
-
 unlayer.registerTool({
     name: 'custom_button',
     label: 'Custom Button',
-    icon: 'fa-text-width',
+    icon: 'fa-hand-pointer',
     supportedDisplayModes: ['web', 'email'],
     options: {
       default: {
         title: null,
       },
       button: {
-        title: 'Custom Button',
+        title: 'Custom Button Tool',
         position: 1,
+        options: {
+          buttonText: {
+            label: 'Button Text',
+            defaultValue: 'Click me!',
+            widget: 'rich_text', // built-in rich text input property editor
+          }
+        },
       },
     },
     values: {},
     renderer: {
       Viewer: unlayer.createViewer({
         render(values) {
-          return `<div${values.customText}</div>`;
+          return `<button>${values.buttonText}</button>`;
         },
       }),
       exporters: {
         web: function (values) {
-          return `<div${values.customText}</div>`;
+          return `<button>${values.buttonText}</button>`;
         },
         email: function (values) {
-          return `<div${values.customText}</div>`;
+          return `<button>${values.buttonText}</button>`;
         },
       },
       head: {
@@ -35,6 +40,4 @@ unlayer.registerTool({
       },
     },
   });
-  
-  
   
