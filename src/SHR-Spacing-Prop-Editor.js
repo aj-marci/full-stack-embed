@@ -34,6 +34,7 @@ unlayer.registerTool({
   renderer: {
     Viewer: unlayer.createViewer({
       render(values) {
+        console.log('Viewer initialized with values:', values); // Log the initialization
         return `<div style="letter-spacing: ${values.letterSpacing};">${values.customText}</div>`;
       },
     }),
@@ -69,5 +70,3 @@ unlayer.registerPropertyEditor({
     },
   }),
 });
-
-
