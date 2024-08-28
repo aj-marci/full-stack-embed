@@ -53,6 +53,9 @@ unlayer.registerTool({
   },
 });
 
+// Log when the tool is registered
+console.log('Custom tool "letter_spacing" has been registered with Unlayer.');
+
 unlayer.registerPropertyEditor({
   name: 'custom_letter_spacing',
   layout: 'bottom',
