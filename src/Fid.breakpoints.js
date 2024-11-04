@@ -48,7 +48,6 @@ unlayer.registerTool({
   renderer: {
     Viewer: unlayer.createViewer({
       render(values) {
-        // Render with device-specific styles based on breakpoints
         return `
           <div 
             style="
@@ -80,7 +79,6 @@ unlayer.registerTool({
     }),
     exporters: {
       web: function (values) {
-        // Apply the breakpoints in the HTML for web
         return `
           <div 
             style="
@@ -118,25 +116,32 @@ unlayer.registerTool({
   },
 });
 
-// Register custom widgets for each breakpoint-specific option
-unlayer.registerPropertyEditor({
-  name: 'font_size_desktop',
-  layout: 'bottom',
-  Widget: unlayer.createWidget({
-    render(value, updateValue) {
-      return `<input class="value" type="number" value="${value.replace('px', '')}" step="1" /> px`;
-    },
-    mount(node, value, updateValue) {
-      var input = node.querySelector('.value');
-      input.onchange = function (e) {
-        updateValue(e.target.value + 'px');
-      };
-    },
-  }),
-});
+// Helper function to register each widget
+const registerResponsiveEditor = (name) => {
+  unlayer.registerPropertyEditor({
+    name,
+    layout: 'bottom',
+    Widget: unlayer.createWidget({
+      render(value, updateValue) {
+        return `<input class="value" type="number" value="${value.replace('px', '')}" step="1" /> px`;
+      },
+      mount(node, value, updateValue) {
+        var input = node.querySelector('.value');
+        input.onchange = function (e) {
+          updateValue(e.target.value + 'px');
+        };
+      },
+    }),
+  });
+};
 
-// Similarly, register other widgets for `font_size_tablet`, `font_size_mobile`, `padding_desktop`, `padding_tablet`, and `padding_mobile` here
-// This would include code similar to the above but using different names for each widget (font_size_tablet, etc.)
+// Register each custom widget for responsive styles
+registerResponsiveEditor('font_size_desktop');
+registerResponsiveEditor('font_size_tablet');
+registerResponsiveEditor('font_size_mobile');
+registerResponsiveEditor('padding_desktop');
+registerResponsiveEditor('padding_tablet');
+registerResponsiveEditor('padding_mobile');
 
 // Log to confirm tool registration
-console.log('Custom tool "responsive_style" has been registered with Unlayer.');
+console.log('Custom tool "responsive_style" with responsive breakpoints has been registered with Unlayer.');
