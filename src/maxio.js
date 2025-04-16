@@ -2,7 +2,7 @@ unlayer.registerTool({
   name: 'my_checkbox_tool',
   label: 'Checkbox Tool',
   icon: 'fa-check-square',
-  supportedDisplayModes: ['email'],
+  supportedDisplayModes: ['email', 'document'],
   options: {
     default: {
       properties: {
