@@ -1,8 +1,8 @@
 unlayer.registerTool({
-  name: 'greeting_tool',
-  label: 'Greeting Tool',
-  icon: 'fa-user',
-  supportedDisplayModes: ['email', 'document'],
+  name: 'my_tool',
+  label: 'My Tool',
+  icon: 'fa-smile',
+  supportedDisplayModes: ['web', 'email', 'document'],
   options: {
     default: {
       properties: {
@@ -14,11 +14,44 @@ unlayer.registerTool({
       }
     }
   },
-  render({ values }) {
-    const name = values.first_name || 'friend';
-    return `<div>Hello, ${name}, it's nice to meet you!</div>`;
-  }
+  values: {
+    first_name: 'Alex'
+  },
+  renderer: {
+    Viewer: unlayer.createViewer({
+      render(values) {
+        const name = values.first_name || 'friend';
+        return `<div>Hello, ${name}, it's nice to meet you!</div>`;
+      },
+    }),
+    exporters: {
+      web: function (values) {
+        const name = values.first_name || 'friend';
+        return `<div>Hello, ${name}, it's nice to meet you!</div>`;
+      },
+      email: function (values) {
+        const name = values.first_name || 'friend';
+        return `<div>Hello, ${name}, it's nice to meet you!</div>`;
+      },
+      document: function (values) {
+        const name = values.first_name || 'friend';
+        return `<div>Hello, ${name}, it's nice to meet you!</div>`;
+      },
+    },
+    head: {
+      css: function (values) {
+        return '';
+      },
+      js: function (values) {
+        return '';
+      },
+    },
+  },
+  validator(data) {
+    return [];
+  },
 });
+
 
 
 
