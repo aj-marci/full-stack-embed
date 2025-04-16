@@ -2,7 +2,7 @@ unlayer.registerTool({
   name: 'greeting_tool',
   label: 'Greeting Tool',
   icon: 'fa-user',
-  supportedDisplayModes: ['email'],
+  supportedDisplayModes: ['email', 'document'],
   options: {
     default: {
       properties: {
