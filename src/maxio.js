@@ -2,7 +2,7 @@ unlayer.registerTool({
   name: 'my_tool',
   label: 'My Tool',
   icon: 'fa-smile',
-  supportedDisplayModes: ['web', 'email'],
+  supportedDisplayModes: ['web', 'email', 'document'],
   options: {
     occupation: {
       title: 'Occupation',
