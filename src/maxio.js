@@ -1,4 +1,4 @@
-unlayer.registerTool({
+/*unlayer.registerTool({
   name: 'my_tool',
   label: 'My Tool',
   icon: 'fa-smile',
@@ -48,12 +48,12 @@ unlayer.registerTool({
       js: function (values) {},
     },
   },
-});
+});*/
 
 
 //////////////// REACT CONFIG ///////////
 
-/*const Viewer = (values) => {
+const Viewer = (values) => {
   return (
     <div>
       {`<div>
@@ -89,25 +89,19 @@ unlayer.registerTool({
     Viewer: Viewer,
     exporters: {
       web: function (values) {
-        return `<div>
-          <img src="${values.data.photo}" />
-          <div>My name is <strong>${values.data.name}</strong> and I am <strong>${values.data.age}</strong> years old.</div>
-          <div>My occupation is <strong>${values.occupation}</strong>.</div>
-        </div>`;
+        return 
+        ReactDOMServer.renderToStaticMarkup( <Viewer/>
+      );
       },
       email: function (values) {
-        return `<div>
-          <img src="${values.data.photo}" />
-          <div>My name is <strong>${values.data.name}</strong> and I am <strong>${values.data.age}</strong> years old.</div>
-          <div>My occupation is <strong>${values.occupation}</strong>.</div>
-        </div>`;
+        return 
+        ReactDOMServer.renderToStaticMarkup( <Viewer/>
+      );
       },
       document: function (values) {
-        return `<div>
-          <img src="${values.data.photo}" />
-          <div>My name is <strong>${values.data.name}</strong> and I am <strong>${values.data.age}</strong> years old.</div>
-          <div>My occupation is <strong>${values.occupation}</strong>.</div>
-        </div>`;
+        return 
+        ReactDOMServer.renderToStaticMarkup( <Viewer/>
+      );
       },
     },
     head: {
@@ -115,4 +109,4 @@ unlayer.registerTool({
       js: function (values) {},
     },
   },
-});*/
+});
