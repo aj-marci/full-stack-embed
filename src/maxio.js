@@ -1,4 +1,45 @@
-const Viewer = (values) => {
+
+unlayer.registerTool({
+  name: 'my_tool',
+  label: 'My Tool',
+  icon: 'fa-smile',
+  supportedDisplayModes: ['web', 'email'],
+  options: {},
+  values: {},
+  renderer: {
+    Viewer: unlayer.createViewer({
+      render(values) {
+        return `<div>
+          <img src="${values.data.photo}" />
+          <div>My name is <strong>${values.data.name}</strong> and I am <strong>${values.data.age}</strong> years old.</div>
+        </div>`;
+      },
+    }),
+    exporters: {
+      web: function (values) {
+        return `<div>
+          <img src="${values.data.photo}" />
+          <div>My name is <strong>${values.data.name}</strong> and I am <strong>${values.data.age}</strong> years old.</div>
+        </div>`;
+      },
+      email: function (values) {
+        return `<div>
+          <img src="${values.data.photo}" />
+          <div>My name is <strong>${values.data.name}</strong> and I am <strong>${values.data.age}</strong> years old.</div>
+        </div>`;
+      },
+    },
+    head: {
+      css: function (values) {},
+      js: function (values) {},
+    },
+  },
+});
+
+
+//////////////// REACT CONFIG ///////////
+
+/*const Viewer = (values) => {
   return (
     <div>
       {`<div>
@@ -60,4 +101,4 @@ unlayer.registerTool({
       js: function (values) {},
     },
   },
-});
+});*/
