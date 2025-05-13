@@ -53,6 +53,8 @@
 
 //////////////// REACT CONFIG ///////////
 
+const React = window.unlayer.React;
+
 const Viewer = (values) => {
   return (
     <div>
