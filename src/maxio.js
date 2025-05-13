@@ -1,3 +1,16 @@
+const Viewer = (values) => {
+  return (
+    <div>
+      <div>{`<div>
+          <img src="${values.data.photo}" />
+          <div>My name is <strong>${values.data.name}</strong> and I am <strong>${values.data.age}</strong> years old.</div>
+          <div>My occupation is <strong>${values.occupation}</strong>.</div>
+        </div>`}</div>
+
+    </div>
+  );
+}
+
 unlayer.registerTool({
   name: 'my_tool',
   label: 'My Tool',
@@ -16,17 +29,9 @@ unlayer.registerTool({
       },
     },
   },
-  values: {},
+  values: {values},
   renderer: {
-    Viewer: unlayer.createViewer({
-      render(values) {
-        return `<div>
-          <img src="${values.data.photo}" />
-          <div>My name is <strong>${values.data.name}</strong> and I am <strong>${values.data.age}</strong> years old.</div>
-          <div>My occupation is <strong>${values.occupation}</strong>.</div>
-        </div>`;
-      },
-    }),
+    Viewer: Viewer,
     exporters: {
       web: function (values) {
         return `<div>
@@ -36,6 +41,13 @@ unlayer.registerTool({
         </div>`;
       },
       email: function (values) {
+        return `<div>
+          <img src="${values.data.photo}" />
+          <div>My name is <strong>${values.data.name}</strong> and I am <strong>${values.data.age}</strong> years old.</div>
+          <div>My occupation is <strong>${values.occupation}</strong>.</div>
+        </div>`;
+      },
+      document: function (values) {
         return `<div>
           <img src="${values.data.photo}" />
           <div>My name is <strong>${values.data.name}</strong> and I am <strong>${values.data.age}</strong> years old.</div>
