@@ -1,11 +1,11 @@
 const Viewer = (values) => {
   return (
     <div>
-      <div>{`<div>
+      {`<div>
           <img src="${values.data.photo}" />
           <div>My name is <strong>${values.data.name}</strong> and I am <strong>${values.data.age}</strong> years old.</div>
           <div>My occupation is <strong>${values.occupation}</strong>.</div>
-        </div>`}</div>
+        </div>`}
 
     </div>
   );
