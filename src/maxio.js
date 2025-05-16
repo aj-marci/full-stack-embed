@@ -1,4 +1,4 @@
-/*unlayer.registerTool({
+unlayer.registerTool({
   name: 'my_tool',
   label: 'My Tool',
   icon: 'fa-smile',
@@ -48,12 +48,12 @@
       js: function (values) {},
     },
   },
-});*/
+});
 
 
 //////////////// REACT CONFIG ///////////
 
-const React = window.unlayer.React;
+/*const React = window.unlayer.React;
 
 const Viewer = (values) => {
   return (
@@ -111,4 +111,4 @@ unlayer.registerTool({
       js: function (values) {},
     },
   },
-});
+});*/
