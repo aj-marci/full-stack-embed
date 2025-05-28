@@ -4,19 +4,36 @@ unlayer.registerTool({
   icon: "fa-smile",
   options: {
     default: {
-      title: "Title",
+      title: "Image",
       position: 1,
       options: {
         image: {
-          label: "Image",
+          label: "Content",
           defaultValue: "",
           widget: "image",
-          //overrideAllowed: true,
+          overrideAllowed: true,
         },
       },
     },
   },
+  values: {},
+  renderer: {
+    Viewer: unlayer.createViewer({
+      render(values) {
+        return `<img style="width: 100px" src="${values.image.url}" />`;
+      },
+    }),
+  },
+  exporters: {
+    web: function (values) {
+      return `<img style="width: 100px" src="${values.image.url}" />`;
+    },
+    email: function (values) {
+      return `<img style="width: 100px" src="${values.image.url}" />`;
+    },
+  },
 });
+
 
 /*unlayer.registerTool({
   name: 'my_tool',
