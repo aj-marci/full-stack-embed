@@ -20,16 +20,16 @@ unlayer.registerTool({
   renderer: {
     Viewer: unlayer.createViewer({
       render(values) {
-        return `<img style="width: 100px" src="${values.image.url}" />`;
+        return `<img style="width: 100%" src="${values.image.url}" />`;
       },
     }),
   },
   exporters: {
     web: function (values) {
-      return `<img style="width: 100px" src="${values.image.url}" />`;
+      return `<img style="width: 100%" src="${values.image.url}" />`;
     },
     email: function (values) {
-      return `<img style="width: 100px" src="${values.image.url}" />`;
+      return `<img style="width: 100%" src="${values.image.url}" />`;
     },
   },
 });
