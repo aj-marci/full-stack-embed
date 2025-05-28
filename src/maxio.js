@@ -11,7 +11,7 @@ unlayer.registerTool({
           label: "Image",
           defaultValue: "",
           widget: "image",
-          overrideAllowed: true,
+          //overrideAllowed: true,
         },
       },
     },
