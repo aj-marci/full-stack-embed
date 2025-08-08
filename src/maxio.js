@@ -1,4 +1,4 @@
-unlayer.registerTool({
+/*unlayer.registerTool({
   name: "my_custom_tool",
   label: "Custom Tool",
   icon: "fa-smile",
@@ -32,10 +32,10 @@ unlayer.registerTool({
       return `<img style="width: 100%" src="${values.image.url}" />`;
     },
   },
-});
+});*/
 
 
-/*unlayer.registerTool({
+unlayer.registerTool({
   name: 'my_tool',
   label: 'My Tool',
   icon: 'fa-smile',
@@ -85,7 +85,7 @@ unlayer.registerTool({
       js: function (values) {},
     },
   },
-});*/
+});
 
 
 //////////////// REACT CONFIG ///////////
